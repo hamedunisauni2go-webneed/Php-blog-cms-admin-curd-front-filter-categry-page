@@ -6,6 +6,7 @@ if(isset($_POST['submit'])){
     $title = trim($_POST['title']);
     $category = $_POST['category'];
     $content = $_POST['content'];
+	$short_desc = $_POST['short_desc'];
 
     if($title == "" || $content == ""){
 
@@ -21,9 +22,9 @@ if(isset($_POST['submit'])){
         move_uploaded_file($tmp,"../uploads/".$image);
 
         mysqli_query($conn,"INSERT INTO blogs
-        (title,slug,category,image,content)
+        (title,slug,category,image,content,short_desc)
         VALUES
-        ('$title','$slug','$category','$image','$content')");
+        ('$title','$slug','$category','$image','$content','$short_desc')");
 
         $_SESSION['success'] = "Blog Added Successfully";
 
@@ -48,6 +49,8 @@ if(isset($_POST['submit'])){
     <option>Results</option>
     <option>Admit Card</option>
 </select>
+<label>Short description</label>
+<textarea  name="short_desc" ></textarea>
 
 <label>Image</label>
 <input type="file" name="image">
@@ -61,7 +64,36 @@ if(isset($_POST['submit'])){
 
 </div>
 
-<script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
-<script>CKEDITOR.replace('editor');</script>
+<script src="https://cdn.ckeditor.com/4.21.0/full/ckeditor.js"></script>
+<script src="ckfinder/ckfinder.js"></script>
+
+<script>
+var editor = CKEDITOR.replace('editor', {
+
+    height: 400,
+
+    filebrowserBrowseUrl: 'ckfinder/ckfinder.html',
+    filebrowserImageBrowseUrl: 'ckfinder/ckfinder.html?type=Images',
+    filebrowserUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+    filebrowserImageUploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+
+    toolbar: [
+        { name: 'document', items: ['Source', '-', 'Preview'] },
+        { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'Undo', 'Redo'] },
+        { name: 'editing', items: ['Find', 'Replace'] },
+        '/',
+        { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike'] },
+        { name: 'paragraph', items: ['NumberedList', 'BulletedList'] },
+        { name: 'insert', items: ['Image', 'Table', 'Link'] },
+        { name: 'styles', items: ['Format'] },
+        { name: 'colors', items: ['TextColor', 'BGColor'] }
+    ]
+
+});
+
+// Optional: bind CKFinder popup
+CKFinder.setupCKEditor(editor);
+
+</script>
 
 <?php include("includes/footer.php"); ?>

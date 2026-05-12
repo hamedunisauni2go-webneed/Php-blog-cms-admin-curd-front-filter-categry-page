@@ -12,6 +12,8 @@ mysqli_query($conn,"SELECT * FROM blogs WHERE id='$id'")
 
 <h2><?php echo $data['title']; ?></h2>
 
+<p><b>Short Description:</b> <?php echo $data['short_desc']; ?></p>
+
 <p><b>Category:</b> <?php echo $data['category']; ?></p>
 
 <img src="../uploads/<?php echo $data['image']; ?>" width="100%">

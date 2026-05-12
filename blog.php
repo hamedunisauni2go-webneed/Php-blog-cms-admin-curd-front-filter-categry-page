@@ -3,18 +3,16 @@ include("config/db.php");
 
 $slug = $_GET['slug'];
 
-$data = mysqli_fetch_assoc(
-    mysqli_query($conn,"SELECT * FROM blogs WHERE slug='$slug'")
-);
+$blog = mysqli_query($conn,"SELECT * FROM blogs WHERE slug='$slug'");
+
+$row = mysqli_fetch_assoc($blog);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 
-<title><?php echo $data['title']; ?></title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><?php echo $row['title']; ?></title>
 
 <link rel="stylesheet" href="assets/css/front.css">
 
@@ -22,22 +20,24 @@ $data = mysqli_fetch_assoc(
 
 <body>
 
-<div class="single-container">
+<div class="blog-detail">
 
-    <a href="index.php" class="back">← Back</a>
+    <img src="uploads/<?php echo $row['image']; ?>" class="detail-image">
 
-    <h1><?php echo $data['title']; ?></h1>
-
+    <h1><?php echo $row['title']; ?></h1>
+<p class="short-desc">
+    <?php echo $row['short_desc']; ?>
+</p>
     <p class="meta">
-        <?php echo $data['category']; ?> |
-        <?php echo date("d M Y", strtotime($data['created_at'])); ?>
+        <?php echo $row['category']; ?> |
+        <?php echo date("d M Y", strtotime($row['created_at'])); ?>
     </p>
 
-    <img src="uploads/<?php echo $data['image']; ?>">
-
     <div class="content">
-        <?php echo $data['content']; ?>
+        <?php echo $row['content']; ?>
     </div>
+
+    <a href="index.php" class="btn">Back</a>
 
 </div>
 
