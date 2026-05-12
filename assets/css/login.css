@@ -1,0 +1,180 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    overflow:hidden;
+}
+
+/* Background Blur Circles */
+
+body::before,
+body::after{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.1);
+    filter:blur(50px);
+}
+
+body::before{
+    top:-80px;
+    left:-80px;
+}
+
+body::after{
+    bottom:-80px;
+    right:-80px;
+}
+
+/* Login Box */
+
+.login-container{
+    width:100%;
+    max-width:420px;
+    padding:20px;
+    position:relative;
+    z-index:1;
+}
+
+.login-box{
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:20px;
+    padding:40px 30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    color:#fff;
+}
+
+/* Header */
+
+.login-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.logo{
+    width:80px;
+    height:80px;
+    margin:auto;
+    background:#fff;
+    color:#2563eb;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.login-header h2{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.login-header p{
+    color:#ddd;
+    font-size:15px;
+}
+
+/* Input Fields */
+
+.input-group{
+    margin-bottom:22px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+}
+
+.input-box{
+    position:relative;
+}
+
+.input-box i{
+    position:absolute;
+    top:50%;
+    left:15px;
+    transform:translateY(-50%);
+    color:#aaa;
+}
+
+.input-box input{
+    width:100%;
+    padding:14px 45px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    font-size:15px;
+    background:#fff;
+    color:#333;
+}
+
+/* Password Toggle */
+
+.toggle-password{
+    position:absolute;
+    top:50%;
+    right:15px;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#777;
+}
+
+/* Button */
+
+.login-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#fff;
+    color:#2563eb;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    background:#2563eb;
+    color:#fff;
+}
+
+/* Error */
+
+.error-msg{
+    background:#dc2626;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:20px;
+    text-align:center;
+    font-size:14px;
+}
+
+/* Mobile */
+
+@media(max-width:480px){
+
+    .login-box{
+        padding:30px 20px;
+    }
+
+    .login-header h2{
+        font-size:25px;
+    }
+
+}
