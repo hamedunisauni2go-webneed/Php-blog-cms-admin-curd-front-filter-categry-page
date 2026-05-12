@@ -74,3 +74,9 @@ blog-cms/
 ├── index.php
 ├── blog.php
 
+Screenshots
+
+<img width="1316" height="523" alt="image" src="https://github.com/user-attachments/assets/cd41568d-63f5-488b-862d-06ed3c6135bf" /><img width="1297" height="604" alt="image" src="https://github.com/user-attachments/assets/de2be0ac-d765-463f-8132-dddb774eda19" /><img width="1347" height="622" alt="image" src="https://github.com/user-attachments/assets/4dbdf83a-2752-4357-8259-aafdd9ae2f94" /><img width="1149" height="592" alt="image" src="https://github.com/user-attachments/assets/b5582bbf-c1ca-422e-9ed2-9e0b37f5f951" />
+
+
+
