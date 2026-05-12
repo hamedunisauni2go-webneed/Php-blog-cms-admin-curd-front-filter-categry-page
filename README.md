@@ -46,3 +46,31 @@ It includes an admin panel to manage blogs and a responsive frontend for users.
 ---
 
 ## 📁 Project Structure
+blog-cms/
+│
+├── admin/
+│   ├── login.php
+│   ├── dashboard.php
+│   ├── add-blog.php
+│   ├── edit-blog.php
+│   ├── delete-blog.php
+│   ├── logout.php
+│   └── includes/
+│       ├── header.php
+│       ├── footer.php
+│       └── auth.php
+│
+├── uploads/
+│
+├── config/
+│   └── db.php
+│
+├── assets/
+│   ├── css/style.css
+│   └── css/front.css
+|   └── css/admin.css
+|    └── css/login.css
+│
+├── index.php
+├── blog.php
+
